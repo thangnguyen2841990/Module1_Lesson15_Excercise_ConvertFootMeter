@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<select name="" id="selectMeter_Foot">
+    <option value="1">Foot to Meter</option>
+    <option value="2">Meter to Foot</option>
+</select>
+<input type="number" id="inputFoot_Meter" placeholder="Giá trị chuyển đổi: "
+       oninput="showResult()" onchange="showResult()"
+        style="width: 100px">
+<p id="outputResult"></p>
+<script>
+    function footToMeter(foot) {
+     meter =  0.305 * foot;
+     return meter;
+    }
+
+    function meterToFoot(meter) {
+       foot =  3.279 * meter;
+       return foot;
+    }
+
+    function showResult() {
+        let number = document.getElementById("inputFoot_Meter").value;
+        let select = document.getElementById("selectMeter_Foot").value;
+        if (select === "1") {
+            document.getElementById("outputResult").innerHTML = number +"(foot) "+ " = " + footToMeter(number) + "(m).";
+        } else if (select === "2") {
+            document.getElementById("outputResult").innerHTML = number +"(m) " + " = " + meterToFoot(number) + "(foot).";
+        }
+    }
+</script>
+</body>
+</html>
